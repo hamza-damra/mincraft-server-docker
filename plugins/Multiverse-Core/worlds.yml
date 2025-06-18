@@ -1,0 +1,106 @@
+# Multiverse Worlds Configuration
+# This file defines all the worlds managed by Multiverse
+
+worlds:
+  lobby:
+    ==: MVWorld
+    hidden: false
+    alias: lobby
+    color: WHITE
+    style: NORMAL
+    pvp: false
+    scale: 1.0
+    respawnWorld: lobby
+    allowWeather: false
+    difficulty: PEACEFUL
+    spawning:
+      animals: false
+      monsters: false
+    entryFee:
+      amount: 0.0
+      currency: -1
+    hunger: false
+    autoHeal: true
+    adjustSpawn: false
+    portalForm: ALL
+    gameMode: ADVENTURE
+    keepSpawnInMemory: true
+    spawnLocation:
+      x: 0.5
+      y: 63.0
+      z: 0.5
+      pitch: 0.0
+      yaw: 0.0
+    autoLoad: true
+    bedRespawn: false
+    worldBlacklist: []
+    environment: NORMAL
+    seed: 0
+    generator: 'CleanroomGenerator:64,stone,63,dirt,62,grass_block'
+    playerLimit: -1
+    allowFlight: true
+    accessPermission: ''
+    
+  world:
+    ==: MVWorld
+    hidden: false
+    alias: survival
+    color: GREEN
+    style: NORMAL
+    pvp: true
+    scale: 1.0
+    respawnWorld: world
+    allowWeather: true
+    difficulty: EASY
+    spawning:
+      animals: true
+      monsters: true
+    entryFee:
+      amount: 0.0
+      currency: -1
+    hunger: true
+    autoHeal: false
+    adjustSpawn: true
+    portalForm: ALL
+    gameMode: SURVIVAL
+    keepSpawnInMemory: true
+    autoLoad: true
+    bedRespawn: true
+    worldBlacklist: []
+    environment: NORMAL
+    seed: 0
+    generator: ''
+    playerLimit: -1
+    allowFlight: false
+    
+  skywars_arena1:
+    ==: MVWorld
+    hidden: false
+    alias: skywars1
+    color: BLUE
+    style: NORMAL
+    pvp: true
+    scale: 1.0
+    respawnWorld: lobby
+    allowWeather: false
+    difficulty: NORMAL
+    spawning:
+      animals: false
+      monsters: false
+    entryFee:
+      amount: 0.0
+      currency: -1
+    hunger: true
+    autoHeal: false
+    adjustSpawn: false
+    portalForm: NONE
+    gameMode: SURVIVAL
+    keepSpawnInMemory: true
+    autoLoad: true
+    bedRespawn: false
+    worldBlacklist: []
+    environment: NORMAL
+    seed: 12345
+    generator: 'CleanroomGenerator:0,air'
+    playerLimit: 12
+    allowFlight: false

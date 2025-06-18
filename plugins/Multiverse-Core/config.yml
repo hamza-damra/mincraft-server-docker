@@ -1,0 +1,24 @@
+# Multiverse-Core Configuration
+# This config file will be updated as needed by the plugin
+multiverse-configuration:
+  enforceaccess: false
+  prefixchat: true
+  prefixchatformat: '[%world%]%chat%'
+  useasyncchat: true
+  teleportintercept: true
+  firstspawnoverride: true
+  displaypermerrors: true
+  globaldebug: 0
+  silentstart: false
+  messagecooldown: 5000
+  version: 2.9
+  firstspawnworld: lobby
+  respawnworld: lobby
+  teleportcooldown: 1000
+  defaultportalsearch: false
+  portalsearchradius: 128
+  autopurge: true
+  iamprettysureidontwantpurge: false
+
+# World configurations will be auto-generated
+worlds: {}

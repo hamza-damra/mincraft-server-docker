@@ -1,0 +1,9 @@
+# Server Notes
+
+This is a simple text file for taking notes about the Minecraft server.
+
+- Add important reminders here
+- Track server changes
+- List future improvements
+
+Last updated: [Current Date]

@@ -1,0 +1,124 @@
+# Professional SkyWars Arena Configuration
+# This file defines all available arenas with enhanced features
+
+arenas:
+  arena1:
+    world: modern_skywar
+    enabled: true
+    min-players: 2
+    max-players: 8
+    time-limit: 900  # 15 minutes for longer battles
+    grace-period: 30  # 30 seconds before PvP starts
+    border-shrink: true
+    border-shrink-delay: 300  # Start shrinking after 5 minutes
+    border-final-size: 40
+
+    # Professional spawn points with themed islands
+    spawn-points:
+      1:  # Forest Island (North)
+        x: 0.5
+        y: 62.0
+        z: -25.5
+        yaw: 180.0
+        pitch: 0.0
+        theme: "forest"
+      2:  # Desert Island (Northeast)
+        x: 18.5
+        y: 62.0
+        z: -17.5
+        yaw: 225.0
+        pitch: 0.0
+        theme: "desert"
+      3:  # Mountain Island (East)
+        x: 24.5
+        y: 62.0
+        z: 0.5
+        yaw: 270.0
+        pitch: 0.0
+        theme: "mountain"
+      4:  # Nether Island (Southeast)
+        x: 18.5
+        y: 62.0
+        z: 17.5
+        yaw: 315.0
+        pitch: 0.0
+        theme: "nether"
+      5:  # Ocean Island (South)
+        x: 0.5
+        y: 62.0
+        z: 25.5
+        yaw: 0.0
+        pitch: 0.0
+        theme: "ocean"
+      6:  # Ice Island (Southwest)
+        x: -18.5
+        y: 62.0
+        z: 17.5
+        yaw: 45.0
+        pitch: 0.0
+        theme: "ice"
+      7:  # End Island (West)
+        x: -24.5
+        y: 62.0
+        z: 0.5
+        yaw: 90.0
+        pitch: 0.0
+        theme: "end"
+      8:  # Jungle Island (Northwest)
+        x: -18.5
+        y: 62.0
+        z: -17.5
+        yaw: 135.0
+        pitch: 0.0
+        theme: "jungle"
+
+    # Enhanced chest configuration
+    chests:
+      center:  # Premium center chests
+        - x: 0, y: 64, z: 0
+        - x: 1, y: 64, z: 0
+        - x: -1, y: 64, z: 0
+        - x: 0, y: 64, z: 1
+      island:  # Island spawn chests
+        - x: 1, y: 62, z: -25    # Forest
+        - x: 17, y: 62, z: -17   # Desert
+        - x: 23, y: 62, z: 0     # Mountain
+        - x: 17, y: 62, z: 17    # Nether
+        - x: 1, y: 62, z: 25     # Ocean
+        - x: -17, y: 62, z: 17   # Ice
+        - x: -23, y: 62, z: 0    # End
+        - x: -17, y: 62, z: -17  # Jungle
+      floating:  # Premium floating island chests
+        - x: 11, y: 76, z: 11    # Gold island
+        - x: -11, y: 76, z: 11   # Diamond island
+        - x: 11, y: 76, z: -11   # Emerald island
+        - x: -11, y: 76, z: -11  # Iron island
+
+    # Arena boundaries
+    boundaries:
+      min-x: -60
+      max-x: 60
+      min-z: -60
+      max-z: 60
+      min-y: 45
+      max-y: 100
+
+    # Special features
+    features:
+      death-match: true
+      death-match-time: 600  # Force deathmatch after 10 minutes
+      spectator-mode: true
+      auto-respawn: false
+      keep-inventory: false
+      natural-regeneration: false
+
+    # Victory conditions
+    victory:
+      last-player-standing: true
+      time-limit-winner: "most-kills"
+
+    # Arena effects
+    effects:
+      night-vision: false
+      speed: false
+      jump-boost: false

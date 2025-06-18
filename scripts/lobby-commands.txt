@@ -1,0 +1,52 @@
+# Lobby Setup Commands
+# Run these commands in-game or via RCON to set up the lobby
+
+# Basic lobby setup commands
+/mv tp lobby
+/gamemode creative
+/tp 0 65 0
+
+# Create lobby structure (basic platform)
+/fill -10 64 -10 10 64 10 stone
+/fill -8 65 -8 8 65 8 grass_block
+/fill -6 66 -6 6 66 6 air
+
+# Place game selection signs
+/setblock 5 66 0 oak_sign[facing=west]{Text1:'{"text":"[Survival]","color":"green","bold":true}',Text2:'{"text":"Click to join","color":"gray"}',Text3:'{"text":"Survival Mode","color":"dark_green"}',Text4:'{"text":""}'}
+
+/setblock -5 66 0 oak_sign[facing=east]{Text1:'{"text":"[SkyWars]","color":"blue","bold":true}',Text2:'{"text":"Click to join","color":"gray"}',Text3:'{"text":"PvP Arena","color":"dark_blue"}',Text4:'{"text":""}'}
+
+# Create spawn point
+/setworldspawn 0 65 0
+/mv modify set spawn 0,65,0 lobby
+
+# Set up sign click events (requires additional plugin or command blocks)
+# Command block for survival teleport (place at 5 65 -1)
+/setblock 5 65 -1 command_block{Command:"/mv tp {player} world"}
+
+# Command block for skywars teleport (place at -5 65 -1)  
+/setblock -5 65 -1 command_block{Command:"/sw join"}
+
+# Pressure plates to trigger command blocks
+/setblock 5 66 -1 stone_pressure_plate
+/setblock -5 66 -1 stone_pressure_plate
+
+# Welcome area decorations
+/fill -1 66 -3 1 68 -3 cobblestone_wall
+/setblock 0 69 -3 torch
+
+# Information signs
+/setblock 0 66 -5 oak_sign[facing=north]{Text1:'{"text":"Welcome to","color":"gold","bold":true}',Text2:'{"text":"Our Server!","color":"gold","bold":true}',Text3:'{"text":"Choose your","color":"gray"}',Text4:'{"text":"game mode","color":"gray"}'}
+
+# Rules sign
+/setblock 3 66 -3 oak_sign[facing=west]{Text1:'{"text":"Server Rules","color":"red","bold":true}',Text2:'{"text":"1. No griefing","color":"gray"}',Text3:'{"text":"2. Be respectful","color":"gray"}',Text4:'{"text":"3. Have fun!","color":"gray"}'}
+
+# Set lobby world properties
+/mv modify set gamemode ADVENTURE lobby
+/mv modify set pvp false lobby
+/mv modify set difficulty PEACEFUL lobby
+/mv modify set monsters false lobby
+/mv modify set animals false lobby
+/mv modify set weather false lobby
+/gamerule doDaylightCycle false
+/time set day

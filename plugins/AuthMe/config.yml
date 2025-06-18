@@ -1,0 +1,247 @@
+# AuthMe Configuration for Login/Register System with MySQL
+# Updated to use MySQL database with custom credentials and user table integration
+
+DataSource:
+  # Database backend type
+  backend: 'MYSQL'
+  # MySQL database settings
+  mySQLHost: 'db'
+  mySQLPort: '3306'
+  mySQLDatabase: 'minecraft-abusaker'
+  mySQLUsername: 'hamza'
+  mySQLPassword: 'Hh@#2021'
+  mySQLTablename: 'authme'
+  mySQLColumnName: 'username'
+  mySQLColumnPassword: 'password'
+  mySQLColumnIp: 'ip'
+  mySQLColumnLastLogin: 'lastlogin'
+  mySQLColumnSalt: 'salt'
+  mySQLColumnGroup: 'id'
+  mySQLlastlocX: 'x'
+  mySQLlastlocY: 'y'
+  mySQLlastlocZ: 'z'
+  mySQLlastlocWorld: 'world'
+  mySQLColumnEmail: 'email'
+  mySQLColumnLogged: 'isLogged'
+  mySQLColumnHasSession: 'hasSession'
+  mySQLColumnRealName: 'realname'
+  mySQLColumnUUID: 'uuid'
+
+settings:
+  # Enable registration
+  isRegistrationEnabled: true
+  # Force registration for new players
+  forceRegisterCommandsAsConsole: false
+  # Force login for existing players
+  forceLoginCommandsAsConsole: false
+  # Allow multiple accounts from same IP
+  isAllowedMultipleAccounts: true
+  # Maximum number of accounts per IP
+  maxRegPerIp: 50
+  # Minimum password length
+  minPasswordLength: 4
+  # Maximum password length
+  passwordMaxLength: 30
+  # Session timeout (in minutes)
+  sessionTimeout: 10
+  # Enable sessions
+  sessionsEnabled: true
+  # Timeout for login (in seconds)
+  registrationTimeout: 30
+  # Enable captcha for registration
+  enableCaptcha: false
+  # Maximum login tries before kick
+  maxLoginTry: 5
+  # Kick players after max tries
+  kickPlayersBeforeLogin: true
+  # Enable password confirmation
+  enablePasswordConfirmation: false
+  # Protect inventory until login
+  protectInventoryBeforeLogIn: true
+  # Enable automatic login
+  enableAutoLogin: true
+  # Delay join message until login
+  delayJoinMessage: true
+  # Remove join messages
+  removeJoinMessage: false
+  # Remove leave messages
+  removeLeaveMessage: false
+  # Enable spawn teleportation
+  isTeleportToSpawnEnabled: true
+  # Force spawn location on join
+  isForceSpawnLocOnJoinEnabled: true
+  # Save quit location
+  isSaveQuitLocationEnabled: false
+  # Force commands on login - update user login data and show welcome message
+  forceCommands:
+    - 'console:mysql -h db -u hamza -p"Hh@#2021" minecraft-abusaker -e "UPDATE users SET last_login = NOW(), total_logins = total_logins + 1, last_login_ip = ''%ip'' WHERE username = ''%p''"'
+    - 'console:tp %p 0.5 63 0.5'
+    - 'console:title %p title {"text":"§6§lWELCOME BACK!","bold":true}'
+    - 'console:title %p subtitle {"text":"§b§lHello %p! §r§7Enjoy your stay on our server!","bold":false}'
+    - 'console:playsound minecraft:entity.player.levelup master %p ~ ~ ~ 1 1'
+    - 'console:tellraw %p {"text":"§8§l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"}'
+    - 'console:tellraw %p {"text":"§6§l                    🎉 WELCOME TO OUR SERVER! 🎉","bold":true}'
+    - 'console:tellraw %p {"text":"§b§l                      Hello §e%p§b! Welcome back!","bold":false}'
+    - 'console:tellraw %p {"text":"§7                   Thank you for choosing our server!"}'
+    - 'console:tellraw %p {"text":"§a§l                      ✨ Have an amazing time! ✨","bold":true}'
+    - 'console:tellraw %p {"text":"§8§l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"}'
+  # Force commands on register - add user to users table and show welcome message
+  forceRegisterCommands:
+    - 'console:mysql -h db -u hamza -p"Hh@#2021" minecraft-abusaker -e "INSERT INTO users (username, display_name, registration_ip, first_join_date) VALUES (''%p'', ''%p'', ''%ip'', NOW()) ON DUPLICATE KEY UPDATE display_name = ''%p''"'
+    - 'console:tp %p 0.5 63 0.5'
+    - 'console:title %p title {"text":"§a§lWELCOME!","bold":true}'
+    - 'console:title %p subtitle {"text":"§e§lThank you for registering, %p!","bold":false}'
+    - 'console:playsound minecraft:entity.player.levelup master %p ~ ~ ~ 1 1.2'
+    - 'console:tellraw %p {"text":"§8§l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"}'
+    - 'console:tellraw %p {"text":"§a§l                    🎊 REGISTRATION SUCCESSFUL! 🎊","bold":true}'
+    - 'console:tellraw %p {"text":"§e§l                      Welcome §b%p§e to our server!","bold":false}'
+    - 'console:tellraw %p {"text":"§7                   Your account has been created successfully!"}'
+    - 'console:tellraw %p {"text":"§6§l                      🌟 Enjoy your adventure! 🌟","bold":true}'
+    - 'console:tellraw %p {"text":"§8§l▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"}'
+  # Apply blind effect before login
+  applyBlindEffect: false
+  # Custom attributes
+  customAttributes: {}
+
+# Password hashing algorithm
+PasswordHash: 'BCRYPT'
+
+# Backup settings
+BackupSystem:
+  ActivateBackup: false
+  OnFileCorruption: false
+  BackupType: 'FILE'
+
+# Security settings
+Security:
+  SQLProblem:
+    stopServer: true
+  ReloadCommand:
+    useReloadCommandSupport: true
+  console:
+    noConsoleSpam: false
+    removePassword: true
+  captcha:
+    useCaptcha: false
+    maxLoginTry: 5
+    captchaLength: 5
+  tempban:
+    enableTempban: false
+    maxLoginTries: 10
+    tempbanLength: 10
+    dateFormat: 'dd/MM/yyyy hh:mm:ss'
+
+# Registration settings
+registration:
+  enabled: true
+  second: 5
+  force: true
+  registerDefaultGroup: false
+  delay: 5
+
+# Unrestricted names (can join without registration)
+UnrestrictedName: []
+
+# Restricted users (cannot register)
+Restrictions:
+  unrestricted: []
+  allowCommands: ['/login', '/register', '/l', '/reg', '/email', '/captcha']
+  allowChat: false
+  allowMovement: false
+  allowRotation: false
+  removeSpeed: true
+  allowInventoryOpen: false
+  denyTabCompleteBeforeLogin: false
+  hideTablistBeforeLogin: false
+  denyClickInInventory: false
+
+# Group settings
+GroupOptions:
+  enablePermissionCheck: false
+  registeredPlayerGroup: ''
+  unregisteredPlayerGroup: ''
+
+# Email settings
+Email:
+  mailSMTP: 'smtp.gmail.com'
+  mailPort: 587
+  mailAccount: ''
+  mailPassword: ''
+  mailSenderName: 'MinecraftServer'
+  mailSubject: 'Your new AuthMe password'
+  mailText: 'Dear <playername>, <br /><br /> This is your new AuthMe password for the server <br /><br /> <servername> : <br /><br /> <generatedpass><br /><br />Do not forget to change password after login! <br /> /changepassword <generatedpass> newPassword'
+  enableEmailOtherAccounts: false
+  emailOtherAccountsText: 'Hi <playername>, <br /><br /> Someone has registered an account with your email address. <br /><br /> If it was you, please ignore this email. Otherwise, please contact an administrator.'
+  emailOtherAccountsSubject: 'New account registered with your email address'
+
+# Hooks with other plugins
+Hooks:
+  bungeecord: false
+  sendPlayerTo: ''
+  useEssentialsMotd: false
+  wordpressIntegration: false
+  phpbbIntegration: false
+  enableProtocolLib: true
+  purgeEssentialsFile: false
+  purgePlayerDat: false
+  purgeLimitedCreative: false
+  purgeAntiXray: false
+  purgeLWC: false
+  purgePermissions: false
+
+# Protection settings
+Protection:
+  enableProtection: true
+  countries: []
+  enableAntiBot: false
+  antiBotSensibility: 5
+  antiBotDuration: 10
+
+# Purge settings
+Purge:
+  useAutoPurge: false
+  daysBeforePurge: 60
+  removeDefaultGroup: true
+  removePermissions: true
+
+# Converter settings
+Converter:
+  Rakamak:
+    fileName: 'users.rak'
+    useIP: false
+    ipFileName: 'UsersIp.rak'
+  CrazyLogin:
+    fileName: 'accounts.db'
+  RoyalAuth:
+    fileName: 'RoyalAuth.yml'
+  vAuth:
+    fileName: 'passwords.yml'
+  SQLite:
+    fileName: 'sqlite.db'
+
+# External board options
+ExternalBoardOptions:
+  mySQLlastlocX: 'x'
+  mySQLlastlocY: 'y'
+  mySQLlastlocZ: 'z'
+  mySQLlastlocWorld: 'world'
+  mySQLPlayerGroup: 'id'
+
+# Performance settings
+Performance:
+  useTimeoutTaskToKickPlayer: false
+  timeoutTaskToKickPlayerAfterSecondsOfNonMoving: 20
+
+# Limbo settings
+limbo:
+  persistence: false
+  restoreInventory: false
+  restoreGameMode: false
+  restoreCollision: false
+  restoreWalkSpeed: false
+  restoreFlySpeed: false
+
+# Spawn settings
+spawn:
+  priority: 'authme,essentials,multiverse,default'
+  essentials-spawn: false

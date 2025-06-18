@@ -1,0 +1,144 @@
+# Lobby Teleport Setup Guide
+
+This guide ensures that all players are automatically forwarded to the lobby when they connect to the server and can use the `/mv tp lobby` command without permission issues.
+
+## Configuration Changes Made
+
+### 1. Multiverse-Core Configuration
+- **File**: `plugins/Multiverse-Core/config.yml`
+- **Changes**:
+  - `firstspawnworld: lobby` - All new players spawn in lobby
+  - `respawnworld: lobby` - Players respawn in lobby when they die
+  - `teleportcooldown: 1000` - Reduced cooldown for faster teleportation
+  - `firstspawnoverride: true` - Override default spawn behavior
+
+### 2. World Configuration
+- **File**: `plugins/Multiverse-Core/worlds.yml`
+- **Changes**:
+  - Added `accessPermission: ''` to lobby world (no permission required to access)
+  - Lobby world configured with ADVENTURE gamemode
+  - PvP disabled in lobby
+  - Auto-heal enabled for better player experience
+
+### 3. Permission Setup
+- **File**: `scripts/setup-permissions.txt`
+- **Critical Permissions Added**:
+  - `multiverse.teleport.lobby` - Allow teleportation to lobby
+  - `multiverse.core.tp.lobby` - Core teleport permission
+  - `multiverse.core.teleport.lobby` - Alternative teleport permission
+  - `multiverse.access.lobby` - Access lobby world
+
+## Setup Instructions
+
+### Step 1: Apply Permission Configuration
+Run the following commands in your server console or via RCON:
+
+```bash
+# Execute the lobby permissions setup script
+chmod +x scripts/setup-lobby-permissions.sh
+./scripts/setup-lobby-permissions.sh
+```
+
+Or manually execute these critical commands:
+
+```
+/lp group default permission set multiverse.access.lobby true
+/lp group default permission set multiverse.teleport.lobby true
+/lp group default permission set multiverse.core.tp.lobby true
+/lp group default permission set multiverse.core.teleport.lobby true
+/lp group default permission set multiverse.teleport.* true
+```
+
+### Step 2: Restart Server
+Restart your Minecraft server to apply all configuration changes:
+
+```bash
+docker-compose restart minecraft
+```
+
+### Step 3: Test the Setup
+
+1. **Test New Player Spawn**:
+   - Join the server with a new account
+   - Verify you spawn in the lobby world
+
+2. **Test Lobby Commands**:
+   - **Primary command**: `/lobby` (custom Essentials command)
+   - **Alternative commands**: `/l`, `/hub`, `/spawn`
+   - **Multiverse command**: `/mv tp lobby` (should now work without errors)
+
+3. **Test Respawn Behavior**:
+   - Die in any world
+   - Verify you respawn in the lobby
+
+## Troubleshooting
+
+### If players can't use `/mv tp lobby`:
+
+1. Check if LuckPerms is loaded:
+   ```
+   /lp info
+   ```
+
+2. Verify player permissions:
+   ```
+   /lp user <playername> permission check multiverse.teleport.lobby
+   ```
+
+3. Grant permission manually if needed:
+   ```
+   /lp user <playername> permission set multiverse.teleport.lobby true
+   ```
+
+### If players don't spawn in lobby:
+
+1. Check Multiverse configuration:
+   ```
+   /mv info lobby
+   ```
+
+2. Verify lobby world is loaded:
+   ```
+   /mv list
+   ```
+
+3. Set spawn manually if needed:
+   ```
+   /mv set spawn lobby
+   ```
+
+### Available Lobby Commands
+Players now have multiple ways to get to the lobby:
+- `/lobby` (Primary - Essentials custom command)
+- `/l` (Short alias for lobby)
+- `/hub` (Alternative lobby command)
+- `/spawn` (Essentials spawn command)
+- `/warp lobby` (Essentials warp - after setup)
+- `/mv tp lobby` (Multiverse teleport - now fixed)
+
+## Additional Notes
+
+- The lobby world is configured with ADVENTURE gamemode to prevent griefing
+- PvP is disabled in the lobby for safety
+- Auto-heal is enabled for better player experience
+- Flight is allowed in the lobby for easier navigation
+
+## Verification Commands
+
+To verify everything is working correctly:
+
+```bash
+# Check Multiverse configuration
+/mv info
+
+# Check world list
+/mv list
+
+# Check player permissions
+/lp user <player> info
+
+# Test teleport
+/mv tp lobby
+```
+
+All players should now be able to access the lobby and use the teleport command without issues!

@@ -1,0 +1,22 @@
+name: LobbyTeleport
+version: 1.0
+main: com.minecraft.lobbyteleport.LobbyTeleport
+api-version: 1.21
+description: Automatically teleports players to lobby on login
+author: MinecraftServer
+depend: [Multiverse-Core, Essentials]
+
+commands:
+  lobby:
+    description: Teleport to lobby
+    usage: /lobby
+    permission: lobbyteleport.lobby
+    permission-message: You don't have permission to use this command.
+
+permissions:
+  lobbyteleport.lobby:
+    description: Allows player to use /lobby command
+    default: true
+  lobbyteleport.admin:
+    description: Admin permissions for lobby teleport
+    default: op

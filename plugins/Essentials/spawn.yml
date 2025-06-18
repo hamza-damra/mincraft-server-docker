@@ -1,0 +1,56 @@
+# Essentials Spawn Configuration
+
+# Main spawn settings
+spawn:
+  # Default spawn world
+  world: lobby
+  # Coordinates for lobby spawn
+  x: 0.5
+  y: 65.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+
+# New player settings
+newplayer:
+  # Spawn new players in lobby
+  spawn-on-join: true
+  # Give starter kit
+  kit: starter
+  # Welcome message
+  announce: true
+  announce-format: '&dWelcome &c{DISPLAYNAME}&d to our server! Use the compass to select a game mode.'
+
+# Respawn settings
+respawn:
+  # Always respawn in lobby unless in specific worlds
+  respawn-at-home: false
+  # Respawn in lobby by default
+  respawn-listener-priority: highest
+  # Force spawn in lobby
+  spawn-if-no-home: true
+
+# World-specific spawn settings
+world-spawns:
+  lobby:
+    x: 0.5
+    y: 65.0
+    z: 0.5
+    yaw: 0.0
+    pitch: 0.0
+  world:
+    # Use world's natural spawn
+    use-world-spawn: true
+  skywars_arena1:
+    # SkyWars plugin handles spawning
+    use-plugin-spawn: true
+
+# Teleportation safety
+teleport-safety: true
+teleport-to-spawn-on-join: true
+
+# Bed spawning rules
+bed-spawns:
+  lobby: false  # No bed spawning in lobby
+  world: true   # Allow bed spawning in survival
+  skywars_arena1: false  # No bed spawning in SkyWars

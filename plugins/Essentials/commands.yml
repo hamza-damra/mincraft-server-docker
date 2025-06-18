@@ -1,0 +1,83 @@
+# Essentials Commands Configuration for Lobby System
+
+# Command aliases for easier server management
+command-aliases:
+  # Lobby management
+  lobby: 'mv tp {player} lobby'
+  spawn: 'mv tp {player} lobby'
+  hub: 'mv tp {player} lobby'
+  
+  # World teleportation
+  survival: 'mv tp {player} world'
+  creative: 'mv tp {player} creative'
+  
+  # SkyWars commands
+  sw: 'skywars'
+  skywars: 'sw join'
+  arena: 'sw join'
+  
+  # Quick admin commands
+  gmc: 'gamemode creative'
+  gms: 'gamemode survival'
+  gma: 'gamemode adventure'
+  gmsp: 'gamemode spectator'
+  
+  # World management shortcuts
+  createworld: 'mv create'
+  deleteworld: 'mv delete'
+  listworlds: 'mv list'
+  worldinfo: 'mv info'
+  
+  # Player management
+  tpall: 'essentials:tpall'
+  kickall: 'essentials:kickall'
+  
+# Disabled commands (to prevent conflicts)
+disabled-commands:
+  - 'bukkit:me'
+  - 'bukkit:tell'
+  - 'bukkit:say'
+  - 'minecraft:me'
+  - 'minecraft:tell'
+  - 'minecraft:say'
+
+# Command overrides
+command-overrides:
+  # Override default teleport commands
+  tp: 'essentials:tp'
+  teleport: 'essentials:tp'
+  
+  # Override spawn command to go to lobby
+  spawn: 'mv tp {player} lobby'
+  
+  # Override home commands
+  home: 'essentials:home'
+  sethome: 'essentials:sethome'
+
+# Command cooldowns (in seconds)
+command-cooldowns:
+  tp: 5
+  tpa: 10
+  home: 3
+  spawn: 2
+  lobby: 2
+  survival: 5
+  skywars: 3
+
+# Command costs (requires economy plugin)
+command-costs:
+  tp: 0
+  tpa: 0
+  home: 0
+  spawn: 0
+  lobby: 0
+  survival: 0
+  skywars: 0
+
+# Social spy settings
+socialspy-commands:
+  - msg
+  - tell
+  - r
+  - mail
+  - m

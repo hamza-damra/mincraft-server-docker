@@ -1,0 +1,48 @@
+# SkyWars Messages Configuration
+# Customize all plugin messages here
+
+# General messages
+prefix: "&8[&bSkyWars&8] "
+no-permission: "&cYou don't have permission to do that!"
+player-only: "&cThis command can only be used by players!"
+unknown-command: "&cUnknown command! Use /sw help for help."
+
+# Game messages
+game:
+  starting: "&aGame starting in &e%time% &aseconds!"
+  started: "&aThe game has started! Good luck!"
+  ended: "&cThe game has ended!"
+  winner: "&6%player% &awon the game!"
+  no-winner: "&cNo winner! Game ended in a draw."
+  
+# Player messages
+player:
+  joined: "&e%player% &ajoined the game! &7(&e%current%&7/&e%max%&7)"
+  left: "&e%player% &cleft the game!"
+  killed: "&c%player% &7was killed by &c%killer%&7!"
+  death: "&c%player% &7died!"
+  
+# Arena messages
+arena:
+  joined: "&aYou joined arena &e%arena%&a!"
+  left: "&cYou left the arena!"
+  full: "&cThis arena is full!"
+  not-found: "&cArena not found!"
+  
+# Lobby messages
+lobby:
+  returned: "&aYou have been returned to the lobby!"
+  teleported: "&aYou have been teleported to the lobby!"
+  
+# Error messages
+error:
+  already-in-game: "&cYou are already in a game!"
+  not-in-game: "&cYou are not in a game!"
+  game-in-progress: "&cThis game is already in progress!"
+  
+# Admin messages
+admin:
+  arena-created: "&aArena &e%arena% &acreated successfully!"
+  arena-deleted: "&cArena &e%arena% &cdeleted!"
+  arena-saved: "&aArena &e%arena% &asaved!"
+  reload-success: "&aConfiguration reloaded successfully!"

@@ -1,0 +1,66 @@
+# SkyWars Main Configuration
+# For detailed configuration options, visit: https://dabo.guru/projects/skywars/configuring-skywars
+
+# Language and locale settings
+locale: en
+debug: false
+
+# Game settings
+games:
+  # Time before a game starts (in seconds)
+  time-before-start: 60
+  # Maximum game time (in seconds) - 0 for no limit
+  max-time: 600
+  # Minimum players to start a game
+  min-players: 2
+  # Maximum players per game
+  max-players: 12
+
+# Arena settings
+arenas:
+  # Enable arena restoration after games
+  enable-arena-restoration: true
+  # Time to wait before restoring arena (in seconds)
+  restoration-delay: 10
+
+# Economy settings (requires Vault)
+economy:
+  enabled: false
+  win-reward: 100
+  kill-reward: 10
+
+# Chest settings
+chests:
+  # Randomize chest contents
+  randomize: true
+  # Refill chests during game
+  refill-chests: true
+  # Time between refills (in seconds)
+  refill-time: 180
+
+# Player settings
+players:
+  # Clear inventory on join
+  clear-inventory: true
+  # Give starting items
+  starting-items:
+    enabled: true
+    items:
+      - "STONE_SWORD:1"
+      - "BREAD:5"
+      - "ARROW:10"
+
+# World settings
+worlds:
+  # Lobby world name
+  lobby-world: lobby
+  # Return players to lobby after game
+  return-to-lobby: true
+
+# Messages (basic - full messages in messages.yml)
+messages:
+  prefix: "&8[&bSkyWars&8] "
+  game-start: "&aGame starting!"
+  game-end: "&cGame ended!"
+  player-join: "&e%player% joined the game!"
+  player-leave: "&e%player% left the game!"

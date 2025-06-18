@@ -1,0 +1,32 @@
+# Essentials Signs Configuration for Lobby System
+
+# Enable sign protection and interaction
+protect-signs: true
+sign-use-per-second: 4
+
+# Custom sign types for lobby
+signs:
+  # Survival world teleport sign
+  '[survival]':
+    command: 'mv tp {PLAYER} world'
+    success-message: '&aWelcome to Survival Mode!'
+    
+  # SkyWars join sign
+  '[skywars]':
+    command: 'mv tp {PLAYER} skywars1'
+    success-message: '&bWelcome to SkyWars Arena!'
+    
+  # Lobby return sign
+  '[lobby]':
+    command: 'mv tp {PLAYER} lobby'
+    success-message: '&eReturned to lobby!'
+    
+  # Server info sign
+  '[info]':
+    permission: 'lobby.info'
+    command: 'msg {PLAYER} &6Server Info: &7This is a multi-mode server with Survival and SkyWars!'
+    
+  # Rules sign
+  '[rules]':
+    permission: 'lobby.rules'
+    command: 'msg {PLAYER} &cRules: &71. No griefing &72. Be respectful &73. Have fun!'

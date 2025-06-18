@@ -1,14 +1,107 @@
 services:
+  # MySQL Database for user authentication data
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "Hh@#2021"
+      MYSQL_DATABASE: "minecraft-abusaker"
+      MYSQL_USER: "hamza"
+      MYSQL_PASSWORD: "Hh@#2021"
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./config/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "3306:3306"  # Expose MySQL port for external access
+    restart: unless-stopped
+    networks:
+      - minecraft_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "hamza", "-p'Hh@#2021'"]
+      timeout: 20s
+      retries: 10
+
   mc:
     image: itzg/minecraft-server
     environment:
       EULA: "true"
+      TYPE: "PAPER"
+      VERSION: "1.21.4"
+      MEMORY: "2G"
+      # Disable online mode to allow both premium and cracked accounts (AuthMe will handle authentication)
+      ONLINE_MODE: "false"
+      # Custom MOTD with welcome message
+      MOTD: "§6Welcome to Our Server!§r\\n§bLogin or Register to play!"
+      # Start with basic server - plugins will be added manually
+      # SPIGET_RESOURCES: ""
+      # Additional server properties
+      DIFFICULTY: "easy"
+      GAMEMODE: "survival"
+      MAX_PLAYERS: "50"
+      VIEW_DISTANCE: "10"
+      SPAWN_PROTECTION: "0"
+      # Enable command blocks for advanced features
+      ENABLE_COMMAND_BLOCK: "true"
+      # RCON for server management
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "minecraft_rcon"
+      # Enable console pipe for command execution
+      CREATE_CONSOLE_IN_PIPE: "true"
+      # World management
+      LEVEL: "lobby"
+      FORCE_WORLD_COPY: "false"
+      # Plugin configurations
+      OVERRIDE_SERVER_PROPERTIES: "true"
     ports:
       - "25565:25565"
+      - "25575:25575"  # RCON port
     volumes:
       - data:/data
+      - ./plugins:/plugins
+      - ./config:/config
+      - ./scripts:/scripts
+      - worlds:/data/worlds
+    depends_on:
+      - db
+    networks:
+      - minecraft_net
     stdin_open: true
     tty: true
     restart: unless-stopped
+
+  # File Manager Web Interface
+  filemanager:
+    image: filebrowser/filebrowser:latest
+    environment:
+      - FB_DATABASE=/database/filebrowser.db
+      - FB_ROOT=/srv
+      - FB_LOG=stdout
+      - FB_NOAUTH=false
+    ports:
+      - "8080:80"
+    volumes:
+      - data:/srv/minecraft-data:rw
+      - ./plugins:/srv/plugins:rw
+      - ./config:/srv/config:rw
+      - ./database:/srv/database:rw
+      - ./logs:/srv/logs:rw
+      - ./backups:/srv/backups:rw
+      - filemanager_db:/database
+      - ./filemanager-config:/config
+    networks:
+      - minecraft_net
+    restart: unless-stopped
+    depends_on:
+      - mc
+    command: --config /config/settings.json
+
+networks:
+  minecraft_net:
+    driver: bridge
+
 volumes:
   data: {}
+  db_data: {}
+  filemanager_db: {}
+  worlds: {}

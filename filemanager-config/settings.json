@@ -1,0 +1,59 @@
+{
+  "port": 80,
+  "baseURL": "",
+  "address": "",
+  "log": "stdout",
+  "database": "/database/filebrowser.db",
+  "root": "/srv",
+  "username": "admin",
+  "password": "admin123",
+  "auth": {
+    "method": "json",
+    "header": ""
+  },
+  "signup": false,
+  "createUserDir": false,
+  "defaults": {
+    "scope": "/srv",
+    "locale": "en",
+    "viewMode": "list",
+    "singleClick": false,
+    "sorting": {
+      "by": "name",
+      "asc": true
+    },
+    "perm": {
+      "admin": false,
+      "execute": true,
+      "create": true,
+      "rename": true,
+      "modify": true,
+      "delete": true,
+      "share": true,
+      "download": true
+    },
+    "commands": [
+      "git",
+      "svn",
+      "hg"
+    ],
+    "hideDotfiles": false,
+    "dateFormat": false
+  },
+  "rules": [],
+  "branding": {
+    "name": "Minecraft Server File Manager",
+    "disableExternal": false,
+    "files": "/img/logo.svg",
+    "theme": "dark"
+  },
+  "commands": {
+    "after_upload": [],
+    "before_save": [],
+    "after_save": []
+  },
+  "shell": [
+    "sh",
+    "-c"
+  ]
+}

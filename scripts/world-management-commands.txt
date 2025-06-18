@@ -1,0 +1,79 @@
+# World Management Commands for Server Setup
+# Run these commands to configure proper world management
+
+# Set lobby as the main spawn world
+/mvs config firstspawnworld lobby
+/mvs config respawnworld lobby
+
+# Configure world-specific settings
+/mv modify set respawnworld lobby world
+/mv modify set respawnworld lobby skywars_arena1
+
+# Set up proper spawn points
+/mv setspawn lobby 0,65,0
+/mv setspawn world  # Uses world's natural spawn
+/mv setspawn skywars_arena1 0,64,0
+
+# Configure world access permissions
+/mv access lobby open
+/mv access world open  
+/mv access skywars_arena1 restricted
+
+# Set up world aliases for easier navigation
+/mv modify set alias lobby lobby
+/mv modify set alias survival world
+/mv modify set alias skywars skywars_arena1
+
+# Configure teleportation delays and cooldowns
+/mv modify set teleportcooldown 5 lobby
+/mv modify set teleportcooldown 10 world
+/mv modify set teleportcooldown 0 skywars_arena1
+
+# Set up world-specific game rules
+# Lobby rules
+/mv gamerule lobby doDaylightCycle false
+/mv gamerule lobby doWeatherCycle false
+/mv gamerule lobby keepInventory true
+/mv gamerule lobby mobGriefing false
+/mv gamerule lobby doFireTick false
+
+# Survival world rules (default survival experience)
+/mv gamerule world doDaylightCycle true
+/mv gamerule world doWeatherCycle true
+/mv gamerule world keepInventory false
+/mv gamerule world mobGriefing true
+/mv gamerule world doFireTick true
+
+# SkyWars world rules
+/mv gamerule skywars_arena1 doDaylightCycle false
+/mv gamerule skywars_arena1 doWeatherCycle false
+/mv gamerule skywars_arena1 keepInventory false
+/mv gamerule skywars_arena1 mobGriefing false
+/mv gamerule skywars_arena1 doFireTick false
+/mv gamerule skywars_arena1 naturalRegeneration true
+
+# Set up inventory separation (requires Multiverse-Inventories)
+# /mvinv group add lobby_group lobby
+# /mvinv group add survival_group world
+# /mvinv group add skywars_group skywars_arena1
+
+# Configure spawn protection
+/mv modify set spawnprotection 5 lobby
+/mv modify set spawnprotection 16 world
+/mv modify set spawnprotection 0 skywars_arena1
+
+# Set up world borders
+/mv modify set border 100 lobby
+/mv modify set border 10000 world
+/mv modify set border 100 skywars_arena1
+
+# Configure world loading
+/mv modify set autoload true lobby
+/mv modify set autoload true world
+/mv modify set autoload false skywars_arena1  # Only load when needed
+
+# Set up world-specific permissions (requires permissions plugin)
+# /lp group default permission set multiverse.access.lobby true
+# /lp group default permission set multiverse.access.world true
+# /lp group default permission set multiverse.access.skywars_arena1 false
+# /lp group player permission set multiverse.access.skywars_arena1 true

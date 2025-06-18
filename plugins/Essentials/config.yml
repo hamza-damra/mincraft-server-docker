@@ -1,0 +1,139 @@
+# Essentials Configuration for Lobby System
+
+# Spawn settings
+spawn-on-join: true
+newbies:
+  announce-format: '&dWelcome &c{DISPLAYNAME}&d to the server!'
+  spawn-on-join: true
+  kit: starter
+
+# Teleportation settings
+teleport-cooldown: 5
+teleport-delay: 3
+teleport-when-free: true
+
+# World settings
+default-world: lobby
+
+# Kits
+kits:
+  starter:
+    delay: 0
+    items:
+      - 'COMPASS 1 name:&6Game_Selector lore:&7Right-click_to_select_a_game_mode!'
+
+# Custom commands
+custom-commands:
+  skywars:
+    - 'mv tp {PLAYER} skywars1'
+    - 'msg {PLAYER} &b&l🗡 Welcome to SkyWars Arena! &r&bFight to be the last player standing!'
+    - 'title {PLAYER} title {"text":"SkyWars Arena","color":"blue","bold":true}'
+    - 'title {PLAYER} subtitle {"text":"Battle in the Sky!","color":"aqua"}'
+  lobby:
+    - 'spawn'
+    - 'msg {PLAYER} &a&l🏠 Welcome back to the lobby! &r&aChoose your next adventure!'
+    - 'title {PLAYER} title {"text":"Lobby","color":"gold","bold":true}'
+    - 'title {PLAYER} subtitle {"text":"Choose Your Adventure","color":"yellow"}'
+  l:
+    - 'spawn'
+    - 'msg {PLAYER} &a&l🏠 Welcome back to the lobby!'
+  hub:
+    - 'spawn'
+    - 'msg {PLAYER} &a&l🏠 Welcome back to the lobby!'
+  sw:
+    - 'mv tp {PLAYER} skywars1'
+    - 'msg {PLAYER} &bJoining SkyWars! Good luck!'
+  survival:
+    - 'mv tp {PLAYER} world'
+    - 'msg {PLAYER} &2&l⛏ Welcome to Survival World! &r&2Build, mine, and survive!'
+    - 'title {PLAYER} title {"text":"Survival World","color":"green","bold":true}'
+    - 'title {PLAYER} subtitle {"text":"Build, Mine, Survive","color":"dark_green"}'
+  creative:
+    - 'gamemode creative {PLAYER}'
+    - 'mv tp {PLAYER} creative'
+    - 'msg {PLAYER} &e&l🎨 Welcome to Creative World! &r&eBuild anything you can imagine!'
+    - 'title {PLAYER} title {"text":"Creative World","color":"yellow","bold":true}'
+    - 'title {PLAYER} subtitle {"text":"Build Anything!","color":"gold"}'
+  info:
+    - 'msg {PLAYER} &9&l📋 Server Information:'
+    - 'msg {PLAYER} &b• Website: &fwww.yourserver.com'
+    - 'msg {PLAYER} &b• Discord: &fdiscord.gg/yourserver'
+    - 'msg {PLAYER} &b• Rules: &f/rules'
+    - 'msg {PLAYER} &b• Help: &f/help or /helpop'
+
+# Signs
+signs:
+  color: true
+  protect: true
+  # Clickable signs for lobby navigation
+  survival:
+    - 'survival'
+  skywars:
+    - 'skywars'
+  creative:
+    - 'creative'
+  lobby:
+    - 'lobby'
+  info:
+    - 'info'
+  # Warp signs
+  warp:
+    - 'warp {1}'
+  # Gamemode signs
+  gm:
+    - 'gamemode {1} {PLAYER}'
+
+# Economy (disabled for lobby)
+economy-log-enabled: false
+
+# Chat settings
+chat:
+  radius: 0
+  format: '<{DISPLAYNAME}> {MESSAGE}'
+
+# Disabled commands in lobby
+disabled-commands:
+  - /time
+  - /weather
+  - /gamemode
+
+# World aliases
+world-aliases:
+  lobby: lobby
+  survival: world
+  skywars: skywars_arena1
+
+# Teleportation rules
+teleport-safety: true
+force-disable-teleport-safety: false
+
+# Spawn settings
+respawn-at-home: false
+respawn-listener-priority: normal
+spawn-if-no-home: true
+
+# Player settings
+player-command-timeouts: {}
+auto-afk: 300
+auto-afk-kick: 600
+
+# Protection settings
+protect:
+  disable:
+    build: true
+    use: false
+    break: true
+    place: true
+  alert:
+    on-placement: true
+    on-use: false
+    on-break: true
+
+# Update checking
+update-check: false
+
+# Custom commands
+custom-commands:
+  lobby:
+    - 'tp {PLAYER} 0.5 63 0.5'
+    - 'msg {PLAYER} &aWelcome to the lobby!'

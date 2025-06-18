@@ -1,0 +1,310 @@
+# SkyWars Chest Configuration
+# Define chest contents and probabilities
+
+# Chest types
+chest-types:
+  basic:
+    name: "Basic Chest"
+    items:
+      - item: "STONE_SWORD"
+        amount: 1
+        chance: 30
+      - item: "WOODEN_SWORD"
+        amount: 1
+        chance: 40
+      - item: "LEATHER_HELMET"
+        amount: 1
+        chance: 25
+      - item: "LEATHER_CHESTPLATE"
+        amount: 1
+        chance: 20
+      - item: "BREAD"
+        amount: 3
+        chance: 60
+      - item: "APPLE"
+        amount: 2
+        chance: 50
+      - item: "ARROW"
+        amount: 8
+        chance: 45
+      - item: "BOW"
+        amount: 1
+        chance: 25
+      - item: "COBBLESTONE"
+        amount: 16
+        chance: 70
+      - item: "OAK_PLANKS"
+        amount: 12
+        chance: 65
+        
+  center:
+    name: "Center Chest"
+    items:
+      - item: "IRON_SWORD"
+        amount: 1
+        chance: 40
+      - item: "DIAMOND_SWORD"
+        amount: 1
+        chance: 15
+      - item: "IRON_HELMET"
+        amount: 1
+        chance: 35
+      - item: "IRON_CHESTPLATE"
+        amount: 1
+        chance: 30
+      - item: "IRON_LEGGINGS"
+        amount: 1
+        chance: 30
+      - item: "IRON_BOOTS"
+        amount: 1
+        chance: 30
+      - item: "COOKED_BEEF"
+        amount: 5
+        chance: 50
+      - item: "GOLDEN_APPLE"
+        amount: 2
+        chance: 30
+      - item: "ARROW"
+        amount: 16
+        chance: 60
+      - item: "BOW"
+        amount: 1
+        chance: 45
+      - item: "ENDER_PEARL"
+        amount: 1
+        chance: 20
+      - item: "TNT"
+        amount: 3
+        chance: 25
+      - item: "FLINT_AND_STEEL"
+        amount: 1
+        chance: 20
+
+  # Premium floating island chests
+  floating:
+    name: "Floating Premium Chest"
+    items:
+      - item: "DIAMOND_SWORD"
+        amount: 1
+        chance: 50
+      - item: "NETHERITE_SWORD"
+        amount: 1
+        chance: 10
+      - item: "DIAMOND_CHESTPLATE"
+        amount: 1
+        chance: 40
+      - item: "DIAMOND_HELMET"
+        amount: 1
+        chance: 35
+      - item: "DIAMOND_LEGGINGS"
+        amount: 1
+        chance: 35
+      - item: "DIAMOND_BOOTS"
+        amount: 1
+        chance: 35
+      - item: "ENCHANTED_GOLDEN_APPLE"
+        amount: 1
+        chance: 25
+      - item: "GOLDEN_APPLE"
+        amount: 3
+        chance: 60
+      - item: "BOW"
+        amount: 1
+        chance: 50
+      - item: "CROSSBOW"
+        amount: 1
+        chance: 30
+      - item: "ENDER_PEARL"
+        amount: 3
+        chance: 70
+      - item: "TNT"
+        amount: 6
+        chance: 40
+      - item: "TOTEM_OF_UNDYING"
+        amount: 1
+        chance: 15
+
+  # Themed island chests
+  forest:
+    name: "Forest Chest"
+    items:
+      - item: "WOODEN_SWORD"
+        amount: 1
+        chance: 50
+      - item: "BOW"
+        amount: 1
+        chance: 60
+      - item: "ARROW"
+        amount: 16
+        chance: 80
+      - item: "APPLE"
+        amount: 4
+        chance: 70
+      - item: "OAK_LOG"
+        amount: 8
+        chance: 60
+      - item: "LEATHER_HELMET"
+        amount: 1
+        chance: 30
+
+  desert:
+    name: "Desert Chest"
+    items:
+      - item: "STONE_SWORD"
+        amount: 1
+        chance: 45
+      - item: "SAND"
+        amount: 16
+        chance: 70
+      - item: "SANDSTONE"
+        amount: 12
+        chance: 60
+      - item: "CACTUS"
+        amount: 3
+        chance: 50
+      - item: "COOKED_BEEF"
+        amount: 3
+        chance: 40
+      - item: "WATER_BUCKET"
+        amount: 1
+        chance: 30
+
+  mountain:
+    name: "Mountain Chest"
+    items:
+      - item: "IRON_SWORD"
+        amount: 1
+        chance: 50
+      - item: "IRON_HELMET"
+        amount: 1
+        chance: 40
+      - item: "STONE"
+        amount: 20
+        chance: 80
+      - item: "COBBLESTONE"
+        amount: 24
+        chance: 70
+      - item: "IRON_INGOT"
+        amount: 3
+        chance: 35
+      - item: "COOKED_BEEF"
+        amount: 4
+        chance: 50
+
+  nether:
+    name: "Nether Chest"
+    items:
+      - item: "IRON_SWORD"
+        amount: 1
+        chance: 45
+      - item: "FIRE_CHARGE"
+        amount: 6
+        chance: 60
+      - item: "BLAZE_ROD"
+        amount: 2
+        chance: 30
+      - item: "NETHER_BRICK"
+        amount: 16
+        chance: 70
+      - item: "MAGMA_CREAM"
+        amount: 3
+        chance: 40
+      - item: "FLINT_AND_STEEL"
+        amount: 1
+        chance: 50
+
+  ocean:
+    name: "Ocean Chest"
+    items:
+      - item: "TRIDENT"
+        amount: 1
+        chance: 20
+      - item: "FISHING_ROD"
+        amount: 1
+        chance: 60
+      - item: "COOKED_COD"
+        amount: 6
+        chance: 70
+      - item: "PRISMARINE"
+        amount: 12
+        chance: 60
+      - item: "WATER_BUCKET"
+        amount: 1
+        chance: 40
+      - item: "SPONGE"
+        amount: 2
+        chance: 25
+
+  ice:
+    name: "Ice Chest"
+    items:
+      - item: "IRON_SWORD"
+        amount: 1
+        chance: 40
+      - item: "SNOWBALL"
+        amount: 16
+        chance: 80
+      - item: "ICE"
+        amount: 12
+        chance: 70
+      - item: "PACKED_ICE"
+        amount: 8
+        chance: 50
+      - item: "COOKED_SALMON"
+        amount: 4
+        chance: 60
+      - item: "LEATHER_BOOTS"
+        amount: 1
+        chance: 30
+
+  end:
+    name: "End Chest"
+    items:
+      - item: "IRON_SWORD"
+        amount: 1
+        chance: 45
+      - item: "ENDER_PEARL"
+        amount: 2
+        chance: 70
+      - item: "END_STONE"
+        amount: 16
+        chance: 60
+      - item: "CHORUS_FRUIT"
+        amount: 4
+        chance: 50
+      - item: "ENDER_CHEST"
+        amount: 1
+        chance: 20
+      - item: "END_ROD"
+        amount: 3
+        chance: 40
+
+  jungle:
+    name: "Jungle Chest"
+    items:
+      - item: "WOODEN_SWORD"
+        amount: 1
+        chance: 45
+      - item: "BOW"
+        amount: 1
+        chance: 55
+      - item: "ARROW"
+        amount: 12
+        chance: 70
+      - item: "COCOA_BEANS"
+        amount: 6
+        chance: 60
+      - item: "JUNGLE_LOG"
+        amount: 8
+        chance: 50
+      - item: "VINE"
+        amount: 8
+        chance: 40
+
+# Enhanced chest settings
+default-chest-type: basic
+center-chest-type: center
+floating-chest-type: floating
+refill-enabled: true
+refill-time: 180
+max-items-per-chest: 6

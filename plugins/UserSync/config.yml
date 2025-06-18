@@ -1,0 +1,38 @@
+# UserSync Plugin Configuration
+# This plugin syncs user registration data to the users table
+
+# Database configuration
+database:
+  host: 'db'
+  port: 3306
+  database: 'minecraft-abusaker'
+  username: 'hamza'
+  password: 'Hh@#2021'
+  
+# User sync settings
+sync:
+  # Enable automatic sync on registration
+  sync_on_register: true
+  # Enable automatic sync on login
+  sync_on_login: true
+  # Enable automatic sync on logout
+  sync_on_logout: true
+  
+# Default user values
+defaults:
+  player_level: 1
+  experience_points: 0
+  coins: 0.00
+  status: 'active'
+  preferred_language: 'en'
+  
+# Features to track
+tracking:
+  # Track playtime
+  track_playtime: true
+  # Track login count
+  track_login_count: true
+  # Track IP addresses
+  track_ip_addresses: true
+  # Track achievements
+  track_achievements: true
